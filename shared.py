@@ -36,7 +36,8 @@ def printSubmarine():
 def getSolutions():
     #TODO: maybe this could iterate the folders/files
     return [
-        "day_1.part_1"
+        "day_1.part_1",
+        "day_1.part_2"
         ]
 
 class bcolours:
