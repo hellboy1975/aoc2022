@@ -48,28 +48,33 @@ class Solution:
         elif (outcome == TO_LOSE):
             value = LOSE
 
-        print(f'  {value} value: {value}')
+        if (cls.debug):
+            print(f'  outcome: {outcome} value: {value}')
 
-        score = 0
+        
         if (play == ROCK):
+            score = ROCK_SCORE
             if (outcome == TO_LOSE):
                 score = SCISSOR_SCORE
             elif (outcome == TO_WIN):
                 score = PAPER_SCORE
 
         elif (play == PAPER):
+            score = PAPER_SCORE
             if (outcome == TO_LOSE):
                 score = ROCK_SCORE
             elif (outcome == TO_WIN):
                 score = SCISSOR_SCORE
 
         elif (play == SCISSORS):
+            score = SCISSOR_SCORE
             if (outcome == TO_LOSE):
                 score = PAPER_SCORE
             elif (outcome == TO_WIN):
                 score = ROCK_SCORE
 
-        print(f'  {play} play: {play}')
+        if (cls.debug):
+            print(f'  play: {play} score: {score}')
         return score, value
             
 
@@ -86,7 +91,7 @@ class Solution:
             if (self.debug):
                 print(x)
 
-            score, value = self.processRound(x[1], x[0])
+            score, value = self.processRound(play = x[0], outcome = x[1])
 
             # TODO: 
             roundTotal = score + value
