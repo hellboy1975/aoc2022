@@ -25,7 +25,7 @@ def printSubmarine():
                                    o oo
                                       o o      |   #)
                                        oo     _|_|_#_
-                                         o   | AOC21 |
+                                         o   | AOC22 |
     __                    ___________________|       |_________________
    |   -_______-----------                                              \\
   >|    _____                                                   --->     )
@@ -39,7 +39,9 @@ def getSolutions():
         "day_1.part_1",
         "day_1.part_2",
         "day_2.part_1",
-        "day_2.part_2"
+        "day_2.part_2",
+        "day_3.part_1",
+        "day_3.part_2"
         ]
 
 class bcolours:
