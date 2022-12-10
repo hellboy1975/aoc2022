@@ -21,16 +21,6 @@ class Solution:
         """
         return string.ascii_letters.index(item) + 1
 
-    def addItem(self, item, itemDictionary):
-        """An entirely redundant function because I misread the requirements
-        """
-        if not item in itemDictionary:
-            itemDictionary[item] = 1
-        else:
-            itemDictionary[item] += 1
-
-        return itemDictionary
-
     def run(self):
         """all the elven magic happens here
         """
