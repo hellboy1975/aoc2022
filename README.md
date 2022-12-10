@@ -1,6 +1,6 @@
 # aoc2022
 
-This has my solutions to the Advent of Code Challenge in 2022.  No idea if I'll make it to the end (I haven't come close in previous years!)
+This has my solutions to the [Advent of Code Challenge](https://adventofcode.com/) in 2022.  No idea if I'll make it to the end (I haven't come close in previous years!)
 
 Run via CLI:
 
