@@ -1,8 +1,7 @@
 import shared
+import string
 
 class Solution:
-
-    
 
     def __init__(self, debug):
         self.debug = debug
@@ -11,8 +10,20 @@ class Solution:
         if (debug):
             self.inputFile = 'debug_data.txt'
 
-    def addItem(cls, item, itemDictionary):
-        
+    def get_priority(self, item):
+        """uses the position of the letter within the alphabet to determine a priority
+
+        Args:
+            item (_type_): the letter of the alphabet for analysis
+
+        Returns:
+            integer: the priority
+        """
+        return string.ascii_letters.index(item) + 1
+
+    def addItem(self, item, itemDictionary):
+        """An entirely redundant function because I misread the requirements
+        """
         if not item in itemDictionary:
             itemDictionary[item] = 1
         else:
@@ -20,25 +31,27 @@ class Solution:
 
         return itemDictionary
 
-
     def run(self):
-        rucksacks = 0
-        itemDictionary = {}
+        """all the elven magic happens here
+        """
+        rucksacks = priority_total = 0
 
-        rucksackData = shared.fileToArray('day_3/'+self.inputFile)
+        rucksack_data = shared.fileToArray('day_3/'+self.inputFile)
 
-        for x in rucksackData:
-            c1 = x[slice(0,len(x)//2)]
-            c2 = x[slice(len(x)//2, len(x))]
-            if (self.debug):
-                print(f'c1: {c1} c2: {c2}')
+        for contents in rucksack_data:
+            compartment_1 = contents[slice(0,len(contents)//2)]
+            compartment_2 = contents[slice(len(contents)//2, len(contents))]
+            if self.debug:
+                print(f'compartment_1: {compartment_1} compartment_2: {compartment_2}')
 
-            item = set(c1).intersection(c2)
-            if (self.debug):
-                print(f'item: {item}')
+            # intersect the two arrays and pop the first item out (there should only ever be 1)
+            item = set(compartment_1).intersection(compartment_2).pop()
+            priority = self.get_priority(item)
+            if self.debug:
+                print(f'item: {item} | {priority}')
 
-            self.addItem(item=item, itemDictionary=itemDictionary)
-
+            priority_total += priority
             rucksacks += 1
-                
-        print(f'Total rucksacks: {rucksacks}')     
+
+        print(f'Total rucksacks: {rucksacks}')
+        print(f'Total p total: {priority_total}')
