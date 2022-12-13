@@ -28,7 +28,7 @@ if args.sub:
 if args.all:
     print(f'{bcolours.BLUEBG}Running all possible solutions!{bcolours.ENDC}')    
     for s in solutions_list:
-        print(f'Processing AOC2021 {bcolours.OKBLUE} {s} {bcolours.ENDC}')
+        print(f'Processing AOC2022 {bcolours.OKBLUE} {s} {bcolours.ENDC}')
         shared.runSolution(s, debug)
 
 else:
