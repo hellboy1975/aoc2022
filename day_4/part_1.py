@@ -2,6 +2,8 @@ import shared
 from shared import bcolours
 
 class Solution:
+    RED_SQUARE = '🟥'
+    GREEN_SQUARE = '🟩'
 
     def __init__(self, debug):
         self.debug = debug
@@ -32,9 +34,18 @@ class Solution:
         range_1 = pair[0].split('-')
         range_2 = pair[1].split('-')
 
+
         return range_1, range_2
 
-
+    def visualiseRange(self, range):
+        i = 1
+        while i <= 100:
+            if i < int(range[0]) or i > int(range[1]):
+                print(self.RED_SQUARE, end='')
+            else:
+                print(self.GREEN_SQUARE, end='')
+            i += 1
+        print('')
 
     def run(self):
         """all the elven magic happens here
@@ -51,7 +62,11 @@ class Solution:
             if self.debug:
                 print(f'pair {pairs}: {pair}')
 
-            range_1, range_2 = self.get_range(pair)                
+            range_1, range_2 = self.get_range(pair)      
+
+            print(f'{range_1} - {range_2}')
+            self.visualiseRange(range_1)         
+            self.visualiseRange(range_2)     
 
             # if self.debug:
                 # print(f'range 1: {range_1}')
@@ -59,8 +74,8 @@ class Solution:
 
             if self.is_within_range(range_1, range_2) or self.is_within_range(range_2, range_1):
                 in_range += 1
-                # if self.debug:
-                print(f'{bcolours.OKBLUE} {pairs} {bcolours.ENDC}')
+                if self.debug:
+                    print(f'{bcolours.OKBLUE} {pairs} {bcolours.ENDC}')
 
             if self.debug:
                 print(f'-------')                
