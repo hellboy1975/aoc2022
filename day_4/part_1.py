@@ -58,13 +58,10 @@ class Solution(baseSolution):
 
             range_1, range_2 = self.get_range(pair)      
 
-            print(f'{range_1} - {range_2}')
-            self.visualiseRange(range_1)         
-            self.visualiseRange(range_2)     
-
-            # if self.debug:
-                # print(f'range 1: {range_1}')
-                # print(f'range 2: {range_2}')
+            if self.visualise:
+                print(f'{range_1} - {range_2}')
+                self.visualiseRange(range_1)         
+                self.visualiseRange(range_2)     
 
             if self.is_within_range(range_1, range_2) or self.is_within_range(range_2, range_1):
                 in_range += 1

@@ -56,9 +56,10 @@ class Solution(baseSolution):
 
             range_1, range_2 = self.get_range(pair)      
 
-            print(f'{range_1} - {range_2}')
-            self.visualiseRange(range_1)         
-            self.visualiseRange(range_2)     
+            if self.visualise:
+                print(f'{range_1} - {range_2}')
+                self.visualiseRange(range_1)         
+                self.visualiseRange(range_2)     
 
             if self.is_overlap(range_1, range_2) :
                 overlapped += 1
