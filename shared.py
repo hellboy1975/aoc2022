@@ -43,7 +43,9 @@ def getSolutions():
         "day_3.part_1",
         "day_3.part_2",
         "day_4.part_1",
-        "day_4.part_2"
+        "day_4.part_2",
+        "day_5.part_1",
+        "day_5.part_2"
         ]
 
 class bcolours:
@@ -64,12 +66,12 @@ class bcolours:
     PINKBG = '\033[105m'
     CYANBG = '\033[106m'
 
-def runSolution(solution, debug):
+def runSolution(solution, debug, visualise):
     try:
         if debug:
             print(f'{solution} found!')    
         module = importlib.import_module(solution)
-        thingo = module.Solution(debug)
+        thingo = module.Solution(debug, visualise)
         thingo.run()
     except Exception as e:
         print(f'  Exception! {bcolours.FAIL}{e}{bcolours.ENDC}')
@@ -79,3 +81,12 @@ def runSolution(solution, debug):
 def stripNonNumeric(s):
     foo = re.compile(r'[^\d.]+')
     return foo.sub('', s)        
+
+class baseSolution(object):
+    def __init__(self, debug, visualise):
+        self.debug = debug
+        self.visualise = visualise
+
+        self.inputFile = 'data.txt'
+        if (debug):
+            self.inputFile = 'debug_data.txt'

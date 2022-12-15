@@ -1,13 +1,7 @@
 import shared
+from shared import baseSolution
 
-class Solution:
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
+class Solution(baseSolution):
 
     def run(self):
         count = 0

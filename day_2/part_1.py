@@ -1,4 +1,5 @@
 import shared
+from shared import baseSolution
 
 ROCK_SCORE = 1
 PAPER_SCORE = 2
@@ -16,18 +17,7 @@ OPPONENT_ROCK = 'X'
 OPPONENT_PAPER = 'Y'
 OPPONENT_SCISSORS = 'Z'
 
-class Solution:
-
-    
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
-
-    
+class Solution(baseSolution):
 
     def playValue(cls, play):
         # this function will determine the score the player gets based on their selection

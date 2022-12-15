@@ -1,4 +1,5 @@
 import shared
+from shared import baseSolution
 
 #scores
 ROCK_SCORE = 1
@@ -18,18 +19,7 @@ TO_LOSE = 'X'
 TO_DRAW = 'Y'
 TO_WIN = 'Z'
 
-class Solution:
-
-    
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
-
-    
+class Solution(baseSolution):
 
     def playValue(cls, play):
         # this function will determine the score the player gets based on their selection

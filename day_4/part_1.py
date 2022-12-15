@@ -1,16 +1,10 @@
 import shared
 from shared import bcolours
+from shared import baseSolution
 
-class Solution:
+class Solution(baseSolution):
     RED_SQUARE = '🟥'
     GREEN_SQUARE = '🟩'
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
 
     def is_within_range(self, subject, range):
         """determines if a range (subject) is within another range
@@ -64,13 +58,10 @@ class Solution:
 
             range_1, range_2 = self.get_range(pair)      
 
-            print(f'{range_1} - {range_2}')
-            self.visualiseRange(range_1)         
-            self.visualiseRange(range_2)     
-
-            # if self.debug:
-                # print(f'range 1: {range_1}')
-                # print(f'range 2: {range_2}')
+            if self.visualise:
+                print(f'{range_1} - {range_2}')
+                self.visualiseRange(range_1)         
+                self.visualiseRange(range_2)     
 
             if self.is_within_range(range_1, range_2) or self.is_within_range(range_2, range_1):
                 in_range += 1

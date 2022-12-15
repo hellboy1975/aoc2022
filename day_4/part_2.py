@@ -1,16 +1,10 @@
 import shared
 from shared import bcolours
+from shared import baseSolution
 
-class Solution:
+class Solution(baseSolution):
     RED_SQUARE = '🟥'
     GREEN_SQUARE = '🟩'
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
 
     def is_overlap(self, range_1, range_2):
         r_1 = []
@@ -62,9 +56,10 @@ class Solution:
 
             range_1, range_2 = self.get_range(pair)      
 
-            print(f'{range_1} - {range_2}')
-            self.visualiseRange(range_1)         
-            self.visualiseRange(range_2)     
+            if self.visualise:
+                print(f'{range_1} - {range_2}')
+                self.visualiseRange(range_1)         
+                self.visualiseRange(range_2)     
 
             if self.is_overlap(range_1, range_2) :
                 overlapped += 1
