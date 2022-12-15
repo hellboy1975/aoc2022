@@ -37,12 +37,15 @@ class Solution(baseSolution):
         print(code,end='')
 
     def apply_instruction(self, instruction, warehouse):
-        num_moves = instruction[self.MOVE]
-        print(f'Num of items to move: {num_moves}')
-        print(f'warehouse: {warehouse}')
+        num_moves = instruction[self.MOVE] + 1
+        move_from = instruction[self.FROM] - 1
+        move_to = instruction[self.TO] - 1
+        
         for i in range(1, num_moves):
-            crate = warehouse[instruction[self.FROM] - 1].pop()
-            warehouse[instruction[self.TO] - 1].append(crate)
+            crate = warehouse[move_from].pop()
+            if self.debug:
+                print(f'pop {move_from}: {crate} to: {move_to}')
+            warehouse[move_to].append(crate)
             i += 1
 
         return warehouse
@@ -50,7 +53,8 @@ class Solution(baseSolution):
 
     def split_instruction(self, instruction):
         # sample move 1 from 3 to 5
-        print(instruction)
+        if self.debug:
+            print(instruction)
         return [int(s) for s in re.findall(r'\b\d+\b', instruction)]
 
     def display_warehouse(self, warehouse):
@@ -79,8 +83,9 @@ class Solution(baseSolution):
             moves += 1
             self.apply_instruction(self.split_instruction(move), warehouse)
             if self.visualise:
-                print(f'\n After move {moves}')
+                print(f'\nAfter move {moves}:')
                 self.display_warehouse(warehouse)
+                print('')
             
 
         print('Final Warehouse:')
