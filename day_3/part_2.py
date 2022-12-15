@@ -1,16 +1,10 @@
 import string
 import shared
+from shared import baseSolution
 
-class Solution:
+class Solution(baseSolution):
     """ Solution for Day 3 Part 2
     """
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.input_file = 'data.txt'
-        if debug:
-            self.input_file = 'debug_data.txt'
 
     def get_priority(self, item):
         """uses the position of the letter within the alphabet to determine a priority

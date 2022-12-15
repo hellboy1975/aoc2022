@@ -1,16 +1,10 @@
 import shared
 from shared import bcolours
+from shared import baseSolution
 
-class Solution:
+class Solution(baseSolution):
     RED_SQUARE = '🟥'
     GREEN_SQUARE = '🟩'
-
-    def __init__(self, debug):
-        self.debug = debug
-
-        self.inputFile = 'data.txt'
-        if (debug):
-            self.inputFile = 'debug_data.txt'
 
     def is_overlap(self, range_1, range_2):
         r_1 = []
